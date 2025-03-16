@@ -33,6 +33,7 @@ func list() {
 		fmt.Fprintf(os.Stderr, "Error %s\n", err)
 		os.Exit(1)
 	}
+	pkg.SortEntries(entries)
 	for _, entry := range entries {
 		getColor := func() string {
 			if entry.IsDir() {
@@ -42,6 +43,7 @@ func list() {
 		}
 		fmt.Printf(getColor(), entry.Name())
 	}
+	fmt.Println()
 }
 
 func list_all() {
